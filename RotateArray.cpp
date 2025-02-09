@@ -5,10 +5,17 @@ using namespace std;
 class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
-        int i = 0;
+        k=nums.size()%k;     //take care in case of k > size
         vector<int>v1(nums.end() - k, nums.end());
         v1.insert(v1.end(),nums.begin(),nums.end()-k);
         nums = v1;
+
+        /*
+          k = k % nums.size();
+  reverse(nums.begin(), nums.end());
+  reverse( nums.begin(), nums.begin()+k);
+  reverse(nums.begin() + k , nums.end());
+        */
  }
 };
 int main()
